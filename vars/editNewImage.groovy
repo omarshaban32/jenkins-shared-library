@@ -3,7 +3,7 @@
 def call(String imageName) {
 
                 sh '''
-                    sed -i "s|image:.*|image: ${imageName}:${BUILD_NUMBER}|g" oc/deployment.yml
+                    sed -i "s|image:.*|image: ${imageName}:${BUILD_NUMBER}|g" oc/deployment.yaml
                    '''
     
 }
