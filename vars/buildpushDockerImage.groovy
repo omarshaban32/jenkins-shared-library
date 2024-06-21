@@ -1,5 +1,5 @@
 #!usr/bin/env groovy
-def call(String dockerHubCredentialsID, String imageName) {
+def call(String dockerHubCredentialsID, String DOCKER_IMAGE) {
 
 	// Log in to DockerHub 
 	withCredentials([usernamePassword(credentialsId: "${dockerHubCredentialsID}", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
@@ -8,6 +8,6 @@ def call(String dockerHubCredentialsID, String imageName) {
         
         // Build and push Docker image
         echo "Building and Pushing Docker image..."
-        sh "docker build -t ${imageName}:${BUILD_NUMBER} ."
-        sh "docker push ${imageName}:${BUILD_NUMBER}"	 
+        sh "docker build -t ${DOCKER_IMAGE}:${BUILD_NUMBER} ."
+        sh "docker push ${DOCKER_IMAGE}:${BUILD_NUMBER}"	 
 }
