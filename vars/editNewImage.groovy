@@ -1,9 +1,9 @@
 #!/usr/bin/env groovy
 
-def call(String imageName) {
+def call(String DOCKER_IMAGE) {
 
                 sh '''
-                    sed -i "s|image:.*|image: ${imageName}:${BUILD_NUMBER}|g" oc/deployment.yaml
+                    sed -i "s|image:.*|image: ${DOCKER_IMAGE}:${BUILD_NUMBER}|g" oc/deployment.yaml
                    '''
     
 }
